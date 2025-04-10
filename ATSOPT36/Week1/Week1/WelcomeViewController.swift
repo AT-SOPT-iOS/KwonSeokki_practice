@@ -41,8 +41,8 @@ class WelcomeViewController: UIViewController {
     private let welcomeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 140, y: 300, width: 95, height: 60))
         label.text = "???님 \n반가워요"
-        label.numberOfLines = 0
-        label.font = .boldSystemFont(ofSize: 25)
+        label.numberOfLines = 0        
+        label.font = UIFont(name: "Pretendard-Bold", size: 25)
         label.textAlignment = .center
         return label
     }()

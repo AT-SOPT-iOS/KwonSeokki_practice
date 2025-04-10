@@ -11,10 +11,10 @@ class LoginViewController: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 80, y: 161, width: 236, height: 44))
         label.text = "동네라서 가능한 모든것\n당근에서 가까운 이웃과 함께해요."
+        label.font = UIFont(name: "Pretendard-Bold", size: 18)
         label.textColor = .black
         label.textAlignment = .center
         label.numberOfLines = 2
-        label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
     

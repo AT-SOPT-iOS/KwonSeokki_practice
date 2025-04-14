@@ -15,7 +15,6 @@ class WelcomeViewController: UIViewController {
         button.setTitle("다시 로그인", for: .normal)
         button.setTitleColor(UIColor(red: 172/255, green: 176/255, blue: 185/255, alpha: 1), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize:  18)
-        button.clipsToBounds = false
         button.layer.cornerRadius = 6
         button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
         return button
@@ -25,7 +24,6 @@ class WelcomeViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 35, y: 425, width: 335, height: 58))
         button.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 15/255, alpha: 1)
         button.setTitle("메인으로", for: .normal)
-        button.clipsToBounds = false
         button.layer.cornerRadius = 6
         button.titleLabel?.font = .systemFont(ofSize:  18)
         button.addTarget(self, action: #selector(backToLoginButtonDidTap), for: .touchUpInside)
@@ -41,8 +39,8 @@ class WelcomeViewController: UIViewController {
     private let welcomeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 140, y: 300, width: 95, height: 60))
         label.text = "???님 \n반가워요"
-        label.numberOfLines = 0
-        label.font = .boldSystemFont(ofSize: 25)
+        label.numberOfLines = 0        
+        label.font = UIFont(name: "Pretendard-Bold", size: 25)
         label.textAlignment = .center
         return label
     }()

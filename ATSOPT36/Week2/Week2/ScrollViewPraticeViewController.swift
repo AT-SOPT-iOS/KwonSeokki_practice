@@ -92,6 +92,11 @@ final class ScrollViewPraticeViewController: UIViewController {
             purpleView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
         
+        // contentView의 높이제약 추가
+        let heightConstrait = contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor)
+        // 제약조건 우선순위 낮게설정
+        heightConstrait.priority = .defaultLow
+        heightConstrait.isActive = true
     }
     
 

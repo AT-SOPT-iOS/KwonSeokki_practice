@@ -21,11 +21,13 @@ final class ScrollViewPraticeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setLayout()
+        setUI()
+        setConstraints()
+        
         // Do any additional setup after loading the view.
     }
     
-    private func setLayout() {
+    private func setUI() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         redView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +49,9 @@ final class ScrollViewPraticeViewController: UIViewController {
         [redView, orangeView, yellowView, greenView, blueView, purpleView].forEach {
             contentView.addSubview($0)
         }
+    }
+    
+    private func setConstraints() {
         
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -98,16 +103,5 @@ final class ScrollViewPraticeViewController: UIViewController {
         heightConstrait.priority = .defaultLow
         heightConstrait.isActive = true
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

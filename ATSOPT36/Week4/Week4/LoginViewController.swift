@@ -4,7 +4,7 @@ import SnapKit
 import Then
 
 final class LoginViewController: UIViewController {
-
+    
     private var loginId: String = ""
     private var password: String = ""
     private var nickName: String = ""
@@ -114,25 +114,25 @@ extension LoginViewController {
             do {
                 let response = try await RegisterService.shared.PostRegisterData(loginId: loginId, password: password, nickname: nickName)
                 let alert = UIAlertController(
-                                  title: "계정 생성 성공",
-                                  message: "환영합니다, \(response.nickname)님! (ID: \(response.userId))",
-                                  preferredStyle: .alert
-                              )
-                              
-                              let okAction = UIAlertAction(title: "확인", style: .default)
-                              alert.addAction(okAction)
-                              self.present(alert, animated: true)
+                    title: "계정 생성 성공",
+                    message: "환영합니다, \(response.nickname)님! (ID: \(response.userId))",
+                    preferredStyle: .alert
+                )
+                
+                let okAction = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
             } catch {
                 let alert = UIAlertController(
-                                    title: "계정 생성 실패",
-                                    message: error.localizedDescription,
-                                    preferredStyle: .alert
-                                )
-                                let okAction = UIAlertAction(title: "확인", style: .default)
-                                alert.addAction(okAction)
-                                self.present(alert, animated: true)
-                                
-                                print("회원가입 에러:", error)
+                    title: "계정 생성 실패",
+                    message: error.localizedDescription,
+                    preferredStyle: .alert
+                )
+                let okAction = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
+                
+                print("회원가입 에러:", error)
             }
         }
     }
@@ -141,19 +141,19 @@ extension LoginViewController {
         Task {
             do {
                 let response = try await LoginService.shared.requestLogin(loginId: loginId, password: password)
-                let loginSuccessVC = LoginSuccessViewController()
+                let loginSuccessVC = LoginSuccessViewController(userId: "\(response.data.userId)", nickname: nickName)
                 navigationController?.pushViewController(loginSuccessVC, animated: true)
             } catch {
                 let alert = UIAlertController(
-                                    title: "로그인 실패",
-                                    message: error.localizedDescription,
-                                    preferredStyle: .alert
-                                )
-                                let okAction = UIAlertAction(title: "확인", style: .default)
-                                alert.addAction(okAction)
-                                self.present(alert, animated: true)
-                                
-                                print("로그인 에러:", error)
+                    title: "로그인 실패",
+                    message: error.localizedDescription,
+                    preferredStyle: .alert
+                )
+                let okAction = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
+                
+                print("로그인 에러:", error)
             }
         }
     }
